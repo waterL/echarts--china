@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html style="height:100%;">
+<head>
+    <meta charset="utf-8">
+    <!-- 引入 ECharts 文件 -->
+    <script src="echarts.min.js"></script>
+    <script src="china.js"></script> 
+</head>
+<body style="height:100%;">
+    <div id="main" style="width:100%;height:100%;"></div>
+</body>
+</html>
+<script>
+	function randomData() {
+		return Math.round(Math.random()*500);
+	}
+	var chart = echarts.init(document.getElementById('main'));
+	var option = {
+    title : {
+        text: '销量',
+        subtext: '纯属虚构',
+        x:'center'
+    },
+    //显示弹窗
+    tooltip : {
+        trigger: 'item'
+    },
+    roamController: {
+        show: true,
+        x: 'right',
+        mapTypeControl: {
+            'china': true
+        }
+    },
+    //颜色
+    dataRange: {
+        min: 0,
+        max: 2500,
+        x: 'left',
+        y: 'bottom',
+        text:['高','低'],           // 文本，默认为数值文本
+        calculable : true
+    },
+    series : [
+        {
+            name: '订单数量',
+            type: 'map',
+            mapType: 'china',
+            roam: false,
+            itemStyle:{
+                normal:{label:{show:true}},
+                emphasis:{label:{show:true}}
+            },
+            //数据
+            data:[
+                {name: '北京',value: Math.round(Math.random()*1000)},
+                {name: '天津',value: Math.round(Math.random()*1000)},
+                {name: '上海',value: Math.round(Math.random()*1000)},
+                {name: '重庆',value: Math.round(Math.random()*1000)},
+                {name: '河北',value: Math.round(Math.random()*1000)},
+                {name: '河南',value: Math.round(Math.random()*1000)},
+                {name: '云南',value: Math.round(Math.random()*1000)},
+                {name: '辽宁',value: Math.round(Math.random()*1000)},
+                {name: '黑龙江',value: Math.round(Math.random()*1000)},
+                {name: '湖南',value: Math.round(Math.random()*1000)},
+                {name: '安徽',value: Math.round(Math.random()*1000)},
+                {name: '山东',value: Math.round(Math.random()*1000)},
+                {name: '新疆',value: Math.round(Math.random()*1000)},
+                {name: '江苏',value: Math.round(Math.random()*1000)},
+                {name: '浙江',value: Math.round(Math.random()*1000)},
+                {name: '江西',value: Math.round(Math.random()*1000)},
+                {name: '湖北',value: Math.round(Math.random()*1000)},
+                {name: '广西',value: Math.round(Math.random()*1000)},
+                {name: '甘肃',value: Math.round(Math.random()*1000)},
+                {name: '山西',value: Math.round(Math.random()*1000)},
+                {name: '内蒙古',value: Math.round(Math.random()*1000)},
+                {name: '陕西',value: Math.round(Math.random()*1000)},
+                {name: '吉林',value: Math.round(Math.random()*1000)},
+                {name: '福建',value: Math.round(Math.random()*1000)},
+                {name: '贵州',value: Math.round(Math.random()*1000)},
+                {name: '广东',value: Math.round(Math.random()*1000)},
+                {name: '青海',value: Math.round(Math.random()*1000)},
+                {name: '西藏',value: Math.round(Math.random()*1000)},
+                {name: '四川',value: Math.round(Math.random()*1000)},
+                {name: '宁夏',value: Math.round(Math.random()*1000)},
+                {name: '海南',value: Math.round(Math.random()*1000)},
+                {name: '台湾',value: Math.round(Math.random()*1000)},
+                {name: '香港',value: Math.round(Math.random()*1000)},
+                {name: '澳门',value: Math.round(Math.random()*1000)}
+            ],
+            //匹配数量
+            markPoint : {
+                itemStyle : {
+                    normal:{
+                        color:'#000'
+                    }
+                },
+                data : [
+                    {name: '北京', coord: [116.403613,39.91513], value: Math.round(Math.random()*1000)},
+	                {name: '天津', coord: [117.4219,39.4189], value: Math.round(Math.random()*1000)},
+	                {name: '上海', coord: [121.4648,31.2891], value: Math.round(Math.random()*1000)},
+	                {name: '重庆', coord: [106.552113,29.568745], value: Math.round(Math.random()*1000)},
+	                {name: '河北', coord: [114.522796,38.048429], value: Math.round(Math.random()*1000)},
+	                {name: '河南', coord: [113.634048,34.75392], value: Math.round(Math.random()*1000)},
+	                {name: '云南', coord: [102.699747,25.047634], value: Math.round(Math.random()*1000)},
+	                {name: '辽宁', coord: [123.403399,41.796092], value: Math.round(Math.random()*1000)},
+	                {name: '黑龙江', coord: [126.646084,45.752558], value: Math.round(Math.random()*1000)},
+	                {name: '湖南', coord: [112.983855,28.122092], value: Math.round(Math.random()*1000)},
+	                {name: '安徽', coord: [112.983855,28.122092], value: Math.round(Math.random()*1000)},
+	                {name: '山东', coord: [117.019393,36.634786], value: Math.round(Math.random()*1000)},
+	                {name: '新疆', coord: [87.594956,43.770287], value: Math.round(Math.random()*1000)},
+	                {name: '江苏', coord: [118.750006,32.011192], value: Math.round(Math.random()*1000)},
+	                {name: '浙江', coord: [120.213004,30.252334], value: Math.round(Math.random()*1000)},
+	                {name: '江西', coord: [115.914271,28.681437], value: Math.round(Math.random()*1000)},
+	                {name: '湖北', coord: [114.323722,30.539906], value: Math.round(Math.random()*1000)},
+	                {name: '广西', coord: [108.319574,22.809275], value: Math.round(Math.random()*1000)},
+	                {name: '甘肃', coord: [103.799705,36.061498], value: Math.round(Math.random()*1000)},
+	                {name: '山西', coord: [112.546379,37.877325], value: Math.round(Math.random()*1000)},
+	                {name: '内蒙古', coord: [111.747885,40.813765], value: Math.round(Math.random()*1000)},
+	                {name: '陕西', coord: [108.950615,34.276046], value: Math.round(Math.random()*1000)},
+	                {name: '吉林', coord: [126.570007,43.852512], value: Math.round(Math.random()*1000)},
+	                {name: '福建', coord: [119.312795,26.071295], value: Math.round(Math.random()*1000)},
+	                {name: '贵州', coord: [106.711598,26.566551], value: Math.round(Math.random()*1000)},
+	                {name: '广东', coord: [113.273001,23.136088], value: Math.round(Math.random()*1000)},
+	                {name: '青海', coord: [101.770935,36.625536], value: Math.round(Math.random()*1000)},
+	                {name: '西藏', coord: [91.105947,29.649128], value: Math.round(Math.random()*1000)},
+	                {name: '四川', coord: [104.074038,30.654372], value: Math.round(Math.random()*1000)},
+	                {name: '宁夏', coord: [106.259283,38.484787], value: Math.round(Math.random()*1000)},
+	                {name: '海南', coord: [109.879508,19.318604], value: Math.round(Math.random()*1000)},
+	                {name: '台湾', coord: [121.344393,24.653253], value: Math.round(Math.random()*1000)},
+	                {name: '香港', coord: [114.160248,22.285882], value: Math.round(Math.random()*1000)},
+	                {name: '澳门', coord: [109.879508,19.318604], value: Math.round(Math.random()*1000)}
+                ]
+            },
+        },
+    ]
+};
+                
+	chart.setOption(option);
+
+</script>
