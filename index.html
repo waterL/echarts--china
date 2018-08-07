@@ -11,6 +11,7 @@
 </body>
 </html>
 <script>
+    // 传的数据 {name:'北京'， value: '111'}
     var data = [
         {name: '北京',value: Math.round(Math.random()*1000)},
         {name: '天津',value: Math.round(Math.random()*1000)},
@@ -46,9 +47,10 @@
         {name: '台湾',value: Math.round(Math.random()*1000)},
         {name: '香港',value: Math.round(Math.random()*1000)},
         {name: '澳门',value: Math.round(Math.random()*1000)}
-    ]; // 传的数据 {name:'北京'， value: '111'}
+    ]; 
 
-	var myChart = echarts.init(document.getElementById('main'));
+	
+    // 默认省份及对应经纬度
     var province = [
         {name: '北京', coord: [116.403613,39.91513]},
         {name: '天津', coord: [117.4219,39.4189]},
@@ -84,7 +86,7 @@
         {name: '台湾', coord: [121.344393,24.653253]},
         {name: '香港', coord: [114.160248,22.285882]},
         {name: '澳门', coord: [109.879508,19.318604]}
-    ] // 默认省份及对应经纬度
+    ] 
     
     var dataPos = [];//弹窗显示数据
     var dataMark = [];//标记数据
@@ -99,6 +101,7 @@
         }
     }
     
+    var myChart = echarts.init(document.getElementById('main'));
 	var option = {
         title : {
             text: '销量',
