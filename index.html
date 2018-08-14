@@ -95,7 +95,9 @@
         for (var k = 0; k < province.length; k++) {
             if(data[i].name.indexOf(province[k].name) >= 0) {
                 dataPos.push({name: province[k].name,value: data[i].value})
-                dataMark.push({name: province[k].name,coord: province[k].coord,value: data[i].value})
+                if(data[i].value > 0) {
+                    dataMark.push({name: province[k].name,coord: province[k].coord,value: data[i].value})
+                }
             }
             
         }
@@ -112,6 +114,7 @@
         tooltip : {
             trigger: 'item'
         },
+
         //显示工具
         toolbox: {
             show: true,
@@ -122,8 +125,12 @@
                 mark : {show: true},
                 dataView : {show: true, readOnly: false},
                 restore : {show: true},
-                saveAsImage : {show: true}
-            }
+                saveAsImage : {show: true},
+                dataZoom: {
+                    show:true
+                }
+            },
+
         },
         //颜色
         dataRange: {
